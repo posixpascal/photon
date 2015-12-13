@@ -106,6 +106,16 @@
   background-color: #f5f5f4;
 }
 
+// Allow the window to be dragged around the desktop by any element in the application.
+.draggable {
+  -webkit-app-region: drag;
+}
+
+// within draggable regions, allow specific elements to be exempted.
+.not-draggable {
+  -webkit-app-region: no-drag;
+}
+
 // Clearfix
 .clearfix {
   @include clearfix();

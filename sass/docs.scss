@@ -91,8 +91,8 @@ a {
 
 .btn-components,
 .btn-download {
-  margin-right: 2rem;
-  margin-left: 2rem;
+  margin-right: $mobile-spacing;
+  margin-left: $mobile-spacing;
   padding: 12px 30px;
   display: block;
 }
@@ -154,6 +154,8 @@ a {
   }
 
   .col-group {
+    display: -webkit-flex; // Make the grid work in older Safari browsers
+    display: -ms-flex; // Make the grid work in older IE browsers
     display: flex
   }
 
@@ -169,69 +171,7 @@ a {
   }
 }
 
-// Navbar
-.nav {
-  position: relative;
-  padding-top: 1.2rem;
-  padding-bottom: 1.2rem;
-  margin-left: $mobile-spacing;
-  margin-right: $mobile-spacing;
-  display: block;
-  font-weight: 500;
-  border-bottom: 1px solid rgba(255,255,255,.2);
-  z-index: 10;
-  @include clearfix;
-}
-
-.title {
-  display: block;
-  font-size: 1em;
-  color: #fff;
-}
-
-.nav-item {
-  margin-right: $mobile-spacing;
-  font-size: .8em;
-  color: #fff;
-  line-height: 1;
-  opacity: .7;
-  transition: opacity .15s linear;
-
-  &:hover {
-    opacity: 1;
-  }
-}
-
-.nav-group {
-  display: block;
-}
-
-@media (min-width: 32em) {
-  .nav {
-    margin-left: $desktop-spacing;
-    margin-right: $desktop-spacing;
-  }
-
-  .title {
-    float: left;
-  }
-
-  .nav-group {
-    margin-top: .5em;
-    float: right;
-  }
-
-  .nav-item {
-    margin-right: $desktop-spacing;
-    float: left;
-  }
-
-  .nav-item:last-child {
-    margin-right: 0;
-  }
-}
-
-// Masthead
+// Masthead Jumbotron
 .masthead {
   position: relative;
   padding-bottom: 80px;
@@ -329,9 +269,66 @@ a {
   opacity: .8;
 }
 
-// Container for iframed examples
-.example-container {
+// Navbar inside each masthead and sub masthead
+.nav {
+  position: relative;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  margin-left: $mobile-spacing;
+  margin-right: $mobile-spacing;
+  display: block;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255,255,255,.2);
+  z-index: 10;
   @include clearfix;
+}
+
+.title {
+  display: block;
+  font-size: 1em;
+  color: #fff;
+}
+
+.nav-item {
+  margin-right: .7rem;
+  font-size: .8em;
+  color: #fff;
+  line-height: 1;
+  opacity: .7;
+  transition: opacity .15s linear;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.nav-group {
+  display: block;
+}
+
+@media (min-width: 32em) {
+  .nav {
+    margin-left: $desktop-spacing;
+    margin-right: $desktop-spacing;
+  }
+
+  .title {
+    float: left;
+  }
+
+  .nav-group {
+    margin-top: .5em;
+    float: right;
+  }
+
+  .nav-item {
+    margin-right: $desktop-spacing;
+    float: left;
+  }
+
+  .nav-item:last-child {
+    margin-right: 0;
+  }
 }
 
 // Wrap the example in window style (border and box-shadow)
@@ -357,6 +354,7 @@ a {
   }
 }
 
+// This is the homepage's demo
 .demo-app-container {
   height: 450px;
   margin-right: $desktop-spacing;
@@ -387,8 +385,15 @@ a {
 .docs-section {
   border-bottom: 1px solid #ddd;
 }
+
 .docs-section-gray {
   background-color: #f8f8f8;
+}
+
+@media (min-width: 32em) {
+  .basic-template-section {
+    border-top: 1px solid #ddd;
+  }
 }
 
 .oss-section {
@@ -407,6 +412,16 @@ a {
 
   .btn {
     margin-top: 20px;
+  }
+
+  .col:last-child {
+    padding-top: 0; // Give the two sections consistent spaceing on mobile
+  }
+}
+
+@media (min-width: 32em) {
+  .oss-section .col:last-child {
+    padding-top: $desktop-spacing;
   }
 }
 
@@ -532,9 +547,10 @@ a {
 }
 
 .forms-component {
-  height: 420px;
+  height: 430px;
 }
 
 .icons-component {
-  height: 670px;
+  height: 700px;
+  overflow: hidden;
 }
